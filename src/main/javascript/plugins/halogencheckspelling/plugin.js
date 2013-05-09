@@ -1,52 +1,73 @@
-﻿/*
-Copyright (c) 2003-2010, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
-*/
+﻿/**
+ * Halogen Spell Check plug-in for CKeditor 3.0
+  * Requires dialog
+ */
+
 CKEDITOR.plugins.add('halogencheckspelling', {
-    init: function (a) {
-        var b = 'halogencheckspellingcmd';
-        a.ui.addButton(b, {
-            label: a.lang.wsc.toolbar,
-            icon: this.path + 'spell-check.gif',
-            click: function (c) {
-                var d = false,
-                    e = CKEDITOR.basePath,
-                    f = CKEDITOR.basePath.replace('/ckeditor', ''),
-                    g = f + 'util/spellChecker_cfg_function.jsp';
-                CKEDITOR.scriptLoader.load(g, function (m) {
-                    if (m) d = true;
-                }, this, false);
-                var h = f + 'css/spellChecker.css',
-                    i = document.getElementById(h);
-                if (i == null) {
-                    var j = new CKEDITOR.dom.element('link');
-                    j.setAttributes({
-                        rel: 'stylesheet',
-                        type: 'text/css',
-                        href: h,
-                        id: h
-                    });
-                    j.appendTo(CKEDITOR.document.getHead());
-                }
-                var k = null;
-                if ($('languages')) k = HALOGEN_TO_SPELL_CHECKER_LANGUAGE_MAP[$('languages').options[$('languages').selectedIndex].value];
-                else k = CK_EDITOR_TO_SPELL_CHECKER_LANGUAGE_MAP[a.config.language]; if (!k) {
-                    alert('SpellChecker: Unsupported language!');
-                    return;
-                }
-                var h = CKEDITOR.basePath.replace('/common/ckeditor/', ''),
-                    l = function () {
-                        if (d) {
-                            var m = getSpellCheckerConfig();
-                            m.url = h;
-                            m.language = k;
-                            m.elements = [a.name];
-                            var n = new HalogenSpellChecker(m);
-                            n.show();
-                        } else setTimeout(l, 100);
-                    };
-                l();
-            }
-        });
-    }
+
+	init: function (editor) {
+
+		var commandName = 'halogencheckspellingcmd';
+			
+		editor.ui.addButton(commandName, {
+			label: editor.lang.wsc.toolbar,
+			icon: this.path+'spell-check.gif',
+			click : function( value )
+			 { 
+				var loaded=false; 
+				var basePath = CKEDITOR.basePath;
+				var base = CKEDITOR.basePath.replace("/ckeditor",""); 
+				var script = base + 'util/spellChecker_cfg_function.jsp';
+				CKEDITOR.scriptLoader.load( script, 
+						function( success )
+ 							{
+ 									 if(success) {
+ 										 loaded=true;
+ 									 }
+								},
+								this,
+								false
+							);
+				    var url=base+'css/spellChecker.css';
+					var resourceId = document.getElementById(url);
+									if(resourceId == null) {
+												var link = new CKEDITOR.dom.element( 'link' );
+												link.setAttributes(
+												{
+														rel		: 'stylesheet',
+														type	: 'text/css',
+														href	: url,
+														id    : url 
+												});
+
+												link.appendTo( CKEDITOR.document.getHead() );		
+									};
+						
+				 var language=null;
+				 if($('languages')){
+					 language=HALOGEN_TO_SPELL_CHECKER_LANGUAGE_MAP[$('languages').options[$('languages').selectedIndex].value];
+				 }else{
+					 language= CK_EDITOR_TO_SPELL_CHECKER_LANGUAGE_MAP[editor.config.language];
+				 }
+				 if(!language){
+					 alert('SpellChecker: Unsupported language!');
+					 return;
+				 }
+				 var url = CKEDITOR.basePath.replace("/common/ckeditor/", "");
+	           	var launch = function () {
+		            		if(loaded) { 
+		            			var config=getSpellCheckerConfig();
+		    					config.url=url;
+		    					config.language=language;
+    							config.elements=[editor.name];
+    							var spellChecker=new HalogenSpellChecker(config);
+		            			spellChecker.show();
+		              	} else {
+		              		setTimeout(launch,100);
+		              	}	
+		         };
+		         launch();
+			 }
+		});
+	}
 });
