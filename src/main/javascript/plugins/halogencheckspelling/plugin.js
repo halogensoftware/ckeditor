@@ -1,5 +1,5 @@
 ﻿/**
- * Halogen Spell Check plug-in for CKeditor 3.0
+ * Halogen Spell Check plug-in for CKeditor 4.1.1
   * Requires dialog
  */
 
