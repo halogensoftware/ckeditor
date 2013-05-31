@@ -8,8 +8,12 @@ CKEDITOR.editorConfig = function( config ) {
 	// For the complete reference:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 	
-	config.removePlugins = 'elementspath';
+	config.removePlugins = 'resize,elementspath';
 	config.extraPlugins = 'wsc,halogenemailtemplatemergefields,halogencheckspelling';
+	config.font_defaultLabel = 'Arial';
+    config.fontSize_defaultLabel = '11';
+    config.pasteFromWordRemoveFontStyles = false;
+    config.pasteFromWordRemoveStyles = false;
 	
 	config.toolbar_HalogenGeneral =
 		[
@@ -38,34 +42,7 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
     config.toolbar_HalogenEmailTags = config.toolbar_HalogenEmail.concat(emailtemplateExtraTools);
-	
-	// The toolbar groups arrangement, optimized for two toolbar rows.
-	config.toolbarGroups = [
-		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
-		{ name: 'links' },
-		{ name: 'insert' },
-		{ name: 'forms' },
-		{ name: 'tools' },
-		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'others' },
-		'/',
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
-		{ name: 'styles' },
-		{ name: 'colors' },
-		{ name: 'about' }
-	];
-
-	// Remove some buttons, provided by the standard plugins, which we don't
-	// need to have in the Standard(s) toolbar.
-	config.removeButtons = 'Underline,Subscript,Superscript';
-
-	// Se the most common block elements.
-	config.format_tags = 'p;h1;h2;h3;pre';
 
 	// Make dialogs simpler.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
-	
-	config.contentsCss = '/epm-web/common/ckeditor/emailTagCombo.css';
 };
