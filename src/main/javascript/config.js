@@ -14,6 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.fontSize_defaultLabel = '11';
     config.pasteFromWordRemoveFontStyles = false;
     config.pasteFromWordRemoveStyles = false;
+	config.skin='halogen';
 	
 	config.toolbar_HalogenGeneral =
 		[

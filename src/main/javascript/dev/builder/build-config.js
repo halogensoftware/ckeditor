@@ -4,9 +4,10 @@
  */
 
 var CKBUILDER_CONFIG = {
-	skin: 'moono',
+	skin: 'halogen',
 	ignore: [
 		'dev',
+		'samples',
 		'README.md',
 		'.gitignore',
 		'.gitattributes',

@@ -73,8 +73,13 @@ panel contents and color panels check menu.css and colorpanel.css.
 /* This class represents panels which are used by rich combos. */
 .cke_combopanel
 {
-    width: 150px;
+    width: 250px;
     height: 170px;
+}
+
+.cke_combo__halogenemailtemplatemergefields .cke_combo_inlinelabel 
+{
+	width: auto !important
 }
 
 /* The IFRAME the panel is wrapped into. */
