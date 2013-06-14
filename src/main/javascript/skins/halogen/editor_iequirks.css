@@ -77,3 +77,7 @@ in Quirks mode only.
 {
 	font-size: 0; /* Set minimal font size, so button won't be streched by the text that doesn't exist. */
 }
+
+.cke_combo__fontsize .cke_combo_text {
+	width: 40px 
+}

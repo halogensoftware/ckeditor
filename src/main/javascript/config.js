@@ -15,6 +15,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.pasteFromWordRemoveFontStyles = false;
     config.pasteFromWordRemoveStyles = false;
 	config.skin='halogen';
+	config.toolbarCanCollapse = true;
 	
 	config.toolbar_HalogenGeneral =
 		[
