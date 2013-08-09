@@ -15,10 +15,13 @@ in Quirks mode only.
 @import url("editor_ie.css");
 
 .cke_top,
-.cke_contents,
 .cke_bottom
 {
 	width: 100%; /* hasLayout = true */
+}
+
+.cke_contents {
+	width: auto
 }
 
 .cke_button_arrow
