@@ -30,6 +30,12 @@ CKEDITOR.editorConfig = function( config ) {
 		    ['Font','FontSize','TextColor']
 		];
 
+    config.toolbar_HalogenERecPolicy =
+        [
+            ['Bold','Italic','Underline'],['BulletedList','NumberedList'],['Link'],['halogencheckspellingcmd'],
+            ['Font','FontSize'],['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],['Table']
+        ];
+
 	config.toolbar_HalogenEmail =
 		[
 		    ['Bold','Italic','Underline'],['BulletedList','NumberedList'],['Link'],['halogencheckspellingcmd'],
