@@ -32,7 +32,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.toolbar_HalogenERecPolicy =
         [
-            ['Bold','Italic','Underline'],['BulletedList','NumberedList'],['Link'],['halogencheckspellingcmd'],
+            ['Bold','Italic','Underline'],['BulletedList','NumberedList'],['Link'],
             ['Font','FontSize'],['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],['Table']
         ];
 
