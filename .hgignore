@@ -1,3 +1,7 @@
 syntax: glob
-.idea
-src/main/javascript/dev/builder/release
+.classpath
+.project
+.settings/
+.externalToolBuilders/
+target/
+build-number.txt
