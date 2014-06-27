@@ -5,3 +5,4 @@ syntax: glob
 .externalToolBuilders/
 target/
 build-number.txt
+pom.xml.versionsBackup

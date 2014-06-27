@@ -73,7 +73,7 @@
 						<configuration>
 							<artifacts>
 								<artifact>
-									<file>${project.artifactId}_${project.version}</file>
+									<file>${basedir}/target/${project.artifactId}_${project.version}.zip</file>
 									<type>zip</type>
 								</artifact>
 							</artifacts>
