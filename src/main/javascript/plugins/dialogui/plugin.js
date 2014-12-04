@@ -1267,6 +1267,13 @@ CKEDITOR.plugins.add( 'dialogui', {
 
 				var inputId = _.frameId + '_input';
 
+					var csrfParameterName = CKEDITOR.config._csrfParameterName || null;
+					var csrfToken = CKEDITOR.config._csrfToken || null;
+					var csrfInputElement = '';
+					if (csrfParameterName != null && csrfToken != null) {
+						csrfInputElement = '<input type="hidden" name="' + csrfParameterName + '" value="' + csrfToken + '"/>';
+					}
+
 					frameDocument.$.write( [ '<html dir="' + langDir + '" lang="' + langCode + '"><head><title></title></head><body style="margin: 0; overflow: hidden; background: transparent;">',
 														'<form enctype="multipart/form-data" method="POST" dir="' + langDir + '" lang="' + langCode + '" action="',
 														CKEDITOR.tools.htmlEncode( elementDefinition.action ),
@@ -1275,6 +1282,7 @@ CKEDITOR.plugins.add( 'dialogui', {
 																	'<label id="', _.labelId, '" for="', inputId, '" style="display:none">',
 													CKEDITOR.tools.htmlEncode( elementDefinition.label ),
 													'</label>',
+													csrfInputElement,
 													'<input id="', inputId, '" aria-labelledby="', _.labelId, '" type="file" name="',
 														CKEDITOR.tools.htmlEncode( elementDefinition.id || 'cke_upload' ),
 														'" size="',

@@ -54,7 +54,7 @@ cd ../..
 echo ""
 echo "Starting CKBuilder..."
 
-java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ../../ release --version="4.1.1.hal.3" --build-config build-config.js --overwrite "$@"
+java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ../../ release --version="4.1.1.hal.4" --build-config build-config.js --overwrite "$@"
 
 echo ""
 echo "Release created in the \"release\" directory."
