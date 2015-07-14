@@ -882,7 +882,8 @@ CKEDITOR.plugins.add( 'dialogui', {
 			 */
 			click: function() {
 				if ( !this._.disabled )
-					return this.fire( 'click', { dialog: this._.dialog } );
+					this.fire( 'click', { dialog: this._.dialog } );
+				arguments[0].data.preventDefault();     
 				return false;
 			},
 

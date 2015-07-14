@@ -1,0 +1,53 @@
+Halogen Maven webapp for CKEditor Library
+
+== Version History ==
+1. 4.1.1.hal-SNAPSHOT (June 26, 2014)
+
+== Description ==
+Wrap CKEditor javascript library into a maven web application. Produce ckeditor.war and ckeditor.zip
+on both windows and linux environment.
+
+== How to Use ==
+1. Check it out from Halogen repository http://caotlvsvn1/hg/thirdparty/ckeditor/
+2. Import it from eclipse and create a ckeditor project
+3. Run the following command line in windows:
+   mvn clean install
+5. ckeditor-4.1.1.hal-SNAPSHOT-dev.zip and ckeditor-4.1.1.hal-SNAPSHOT-prod.zip will be generated in target directory and installed in the local Maven repository.
+
+== Generate release ==
+This project uses maven-release plugin which provide a standard mechanism to release project artifacts outside the immediate development team.
+The plugin provides basic functionality to create a release and to update the project's SCM accordingly.
+To create a release, the maven-release plugin is executed through maven in 2 stages:
+<1> Preparing the release
+    This step will do the following:
+    - Verify that there are no uncommitted changes in the workspace.
+    - Prompt the user for the desired tag, release and development version names.
+    - Modify and commit release information into the pom.xml file.
+    - Tag the entire project source tree with the new tag name.
+
+<2> Performing the release
+    This step will do the following
+    - Extract file revisions versioned under the new tag name.
+    - Execute the maven build lifecycle on the extracted instance of the project.
+    - Deploy the versioned artifacts to appropriate local and remote repositories.
+    
+== Instructions on how to Auto generate a release ==
+The project pom.xml has been configured to automate project versioning and release with maven. The following steps have been done:
+A) Declare the source control management using the <scm> tag in pom.xml(see scm section in pom.xml).
+B) Declare the remote repository where we want to publish the release to (see distributionManagement section in pom.xml).
+C) Specify credentials needed to publish to the remote repository in USER_HOME/.m2/settings.xml file. For example, adding this into settings.xml:
+<server>
+	<id>caotlvbld1.halogen.local</id>
+    <username>deployer</username>
+    <password>*********</password>
+</server>
+
+To make a release, run the following commands on Dos window:
+-> cd to the project base directory which contains pom.xml
+-> mvn release:prepare
+  Maven will prompt the user for the following information:
+  - A tag name
+  - A project release version
+  - A new development version
+-> mvn release:perform
+   This command will update development version from 1.0.0-SNAPSHOT to 1.0.1-SNAPSHOT, the release version will be 1.0.0 and push a tagged artifact jar to a remote repository.
