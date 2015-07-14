@@ -50,7 +50,18 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
     config.toolbar_HalogenEmailTags = config.toolbar_HalogenEmail.concat(emailtemplateExtraTools);
-
+    
+	//CW admin side CKEditor toolbar
+	config.toolbar_CWAdmin =
+	[
+		['Source','-','Preview','Maximize','-','Bold','Italic','Underline','Subscript','Superscript'], 
+		['TextColor','BGColor'],['NumberedList','BulletedList','Outdent','Indent'],
+		['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','HorizontalRule'], 
+		['SpellChecker'],['Wsc'],['Link','Unlink'], ['Image','SpecialChar'], 
+		'/',
+		['Font','FontSize']
+	];
+  
 	// Make dialogs simpler.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 };
