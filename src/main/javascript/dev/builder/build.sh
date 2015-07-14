@@ -71,7 +71,7 @@ then
 	VERSION=$TAG
 fi
 
-java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ../../ release $JAVA_ARGS --version="$VERSION" --revision="$REVISION" --overwrite
+java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ../../ release $JAVA_ARGS --version="$VERSION" --revision="$REVISION" --no-tar --overwrite
 
 # Copy and build tests
 if [[ "$ARGS" == *\ \-t\ * ]]; then

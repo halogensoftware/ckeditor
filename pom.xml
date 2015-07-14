@@ -4,42 +4,53 @@
   	<groupId>com.ckeditor.javascript</groupId>
   	<artifactId>ckeditor</artifactId>
   	<packaging>pom</packaging>
-  	<version>4.1.1.hal-SNAPSHOT</version>
+  	<version>4.4.8.hal-SNAPSHOT</version>
 
   	<name>CKEditor Maven Assembly</name>
-  	<description>http://caotlvsvn1/hg/thirdparty/ckeditor/raw-file/tip/README</description>
+  	<description>http://build.pdt/hg/thirdparty/ckeditor/raw-file/tip/README</description>
   	
   	<organization>
 		<name>Halogen Software</name>
 		<url>http://www.halogensoftware.com</url>
 	</organization>	
   
-  	<scm>
-  		<connection>scm:hg:http://caotlvsvn1/hg/thirdparty/ckeditor/</connection>
-		<developerConnection>scm:hg:http://caotlvsvn1/hg/thirdparty/ckeditor/</developerConnection>
-		<url>http://caotlvsvn1/hg/thirdparty/ckeditor/</url>
-    </scm>
+	<scm>
+		<connection>scm:hg:${scm.repo.root}/hg/thirdparty/ckeditor/</connection>
+		<developerConnection>scm:hg:${scm.repo.root}/hg/thirdparty/ckeditor/</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
     
-	<distributionManagement>
-		<repository>
-			<id>maven-server-releases</id>
-			<name>maven-server-releases</name>
-			<url>${maven.repo.root}/ext-releases-local</url>
-		</repository>
-		<snapshotRepository>
-			<id>maven-server-snapshots</id>
-			<name>maven-server-snapshots</name>
-			<url>${maven.repo.root}/ext-snapshots-local</url>
-		</snapshotRepository>
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>csm-repo</id>
+            <name>PDT Server Releases</name>
+            <url>${csm.repo.root}/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>csm-repo</id>
+            <name>PDT Server Snapshots</name>
+            <url>${csm.repo.root}/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 	
 	<build>			 
 		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.1</version>
-			</plugin>			
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin-hal</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <id>get-hg-info</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>hgchangeset</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+			<!-- launch the build shell script through maven exec -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -53,7 +64,7 @@
 						</goals>
 						<configuration>
 							<executable>java</executable>
-							<commandlineArgs>-jar src/main/javascript/dev/builder/ckbuilder/1.6.1/ckbuilder.jar --build src/main/javascript/ target --version=${project.version} --build-config src/main/javascript/dev/builder/build-config.js --overwrite "$@"</commandlineArgs>
+							<commandlineArgs>-jar src/main/javascript/dev/builder/ckbuilder/2.0.1/ckbuilder.jar --build src/main/javascript/ target --version=${project.version} --revision=${hg.changeset} --build-config src/main/javascript/dev/builder/build-config.js --no-tar --overwrite "$@"</commandlineArgs>
 						</configuration>
 					</execution> 
 				</executions>
@@ -82,12 +93,40 @@
 				</executions>
 			</plugin>			
 		</plugins>
+        <pluginManagement>
+            <plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>2.1</version>
+				</plugin>			
+            </plugins>
+        </pluginManagement>			
 	</build>  
 	 
 	<properties>	
-		<maven.repo.root>http://caotlvbld1:8081/artifactory</maven.repo.root>
-		<confluence.home>http://caotlvwiki1/</confluence.home>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!-- defines from what branch the source code came from.-->
+		<hg.branch>${scmBranch}</hg.branch>
+		<hg.changeset>${changeSet}</hg.changeset>
+		<hg.changesetdate>${changeSetDate}</hg.changesetdate>
+				
+        <scm.repo.root>http://build.pdt/hg</scm.repo.root>
+		
+		<!-- 
+			 This is set to the local interface of the build server for reason of F5 VE bandwidth restrictions, 
+		     override in your local settings.xml properties, but avoid checking in changes.
+		 -->
+        <csm.repo.root>http://127.0.0.1:8080/artifactory</csm.repo.root>
+        <maven.repo.root>http://127.0.0.1:8080/artifactory</maven.repo.root>
+		
+		<confluence.home>http://wiki/</confluence.home>
+
+        <!-- Release Stream -->
+        <!-- This value is intended for feature builds only to set a release version target of the suite. -->
+        <release.stream>12.0</release.stream>
+        <feature.stream>37</feature.stream>		
 	</properties>
   
 </project>
