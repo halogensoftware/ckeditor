@@ -1,6 +1,6 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.html or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 /**
@@ -18,16 +18,9 @@
  * @namespace
  */
 CKEDITOR.lang[ 'ms' ] = {
-	/**
-	 * The language reading direction. Possible values are "rtl" for
-	 * Right-To-Left languages (like Arabic) and "ltr" for Left-To-Right
-	 * languages (like English).
-	 * @default 'ltr'
-	 */
-	dir: 'ltr',
-
 	// ARIA description.
 	editor: 'Rich Text Editor', // MISSING
+	editorPanel: 'Rich Text Editor panel', // MISSING
 
 	// Common messages and labels.
 	common: {
@@ -64,14 +57,14 @@ CKEDITOR.lang[ 'ms' ] = {
 		cssStyle: 'Stail',
 		ok: 'OK',
 		cancel: 'Batal',
-		close: 'Close', // MISSING
+		close: 'Tutup',
 		preview: 'Prebiu',
 		resize: 'Resize', // MISSING
-		generalTab: 'General', // MISSING
+		generalTab: 'Umum',
 		advancedTab: 'Advanced',
 		validateNumberFailed: 'This value is not a number.', // MISSING
 		confirmNewPage: 'Any unsaved changes to this content will be lost. Are you sure you want to load new page?', // MISSING
-		confirmCancel: 'Some of the options have been changed. Are you sure to close the dialog?', // MISSING
+		confirmCancel: 'You have changed some options. Are you sure you want to close the dialog window?', // MISSING
 		options: 'Options', // MISSING
 		target: 'Sasaran',
 		targetNew: 'New Window (_blank)', // MISSING
@@ -88,10 +81,12 @@ CKEDITOR.lang[ 'ms' ] = {
 		alignLeft: 'Kiri',
 		alignRight: 'Kanan',
 		alignCenter: 'Tengah',
+		alignJustify: 'Jajaran Blok',
 		alignTop: 'Atas',
 		alignMiddle: 'Pertengahan',
 		alignBottom: 'Bawah',
-		invalidValue	: 'Invalid value.', // MISSING
+		alignNone: 'None', // MISSING
+		invalidValue	: 'Nilai tidak sah.',
 		invalidHeight: 'Height must be a number.', // MISSING
 		invalidWidth: 'Width must be a number.', // MISSING
 		invalidCssLength: 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).', // MISSING

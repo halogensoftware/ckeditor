@@ -1,11 +1,11 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.html or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 /**
-* @fileOverview 
-*/
+ * @fileOverview
+ */
 
 /**#@+
    @type String
@@ -17,16 +17,9 @@
  * @namespace
  */
 CKEDITOR.lang[ 'sq' ] = {
-	/**
-	 * The language reading direction. Possible values are "rtl" for
-	 * Right-To-Left languages (like Arabic) and "ltr" for Left-To-Right
-	 * languages (like English).
-	 * @default 'ltr'
-	 */
-	dir: 'ltr',
-
 	// ARIA description.
 	editor: 'Redaktues i Pasur Teksti',
+	editorPanel: 'Paneli i redaktuesit të tekstit të plotë',
 
 	// Common messages and labels.
 	common: {
@@ -87,9 +80,11 @@ CKEDITOR.lang[ 'sq' ] = {
 		alignLeft: 'Majtas',
 		alignRight: 'Djathtas',
 		alignCenter: 'Qendër',
+		alignJustify: 'Zgjero',
 		alignTop: 'Lart',
 		alignMiddle: 'Në mes',
 		alignBottom: 'Poshtë',
+		alignNone: 'Asnjë',
 		invalidValue	: 'Vlerë e pavlefshme',
 		invalidHeight: 'Lartësia duhet të jetë një numër',
 		invalidWidth: 'Gjerësia duhet të jetë një numër',

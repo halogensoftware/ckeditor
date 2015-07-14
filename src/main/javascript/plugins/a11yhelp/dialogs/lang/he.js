@@ -1,6 +1,6 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.html or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 CKEDITOR.plugins.setLang( 'a11yhelp', 'he', {
@@ -68,12 +68,12 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'he', {
 			legend: 'לחץ ${toolbarCollapse}'
 		},
 			{
-			name: ' Access previous focus space command', // MISSING
-			legend: 'Press ${accessPreviousSpace} to access the closest unreachable focus space before the caret, for example: two adjacent HR elements. Repeat the key combination to reach distant focus spaces.' // MISSING
+			name: 'גישה למיקום המיקוד הקודם',
+			legend: 'לחץ ${accessPreviousSpace} כדי לגשת למיקום המיקוד הלא-נגיש הקרוב לפני הסמן, למשל בין שני אלמנטים סמוכים מסוג HR. חזור על צירוף מקשים זה כדי להגיע למקומות מיקוד רחוקים יותר.'
 		},
 			{
-			name: ' Access next focus space command', // MISSING
-			legend: 'Press ${accessNextSpace} to access the closest unreachable focus space after the caret, for example: two adjacent HR elements. Repeat the key combination to reach distant focus spaces.' // MISSING
+			name: 'גישה למיקום המיקוד הבא',
+			legend: 'לחץ ${accessNextSpace} כדי לגשת למיקום המיקוד הלא-נגיש הקרוב אחרי הסמן, למשל בין שני אלמנטים סמוכים מסוג HR. חזור על צירוף מקשים זה כדי להגיע למקומות מיקוד רחוקים יותר.'
 		},
 			{
 			name: ' הוראות נגישות',
@@ -81,5 +81,67 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'he', {
 		}
 		]
 	}
-	]
-});
+	],
+	backspace: 'Backspace',
+	tab: 'Tab',
+	enter: 'Enter',
+	shift: 'Shift',
+	ctrl: 'Ctrl',
+	alt: 'Alt',
+	pause: 'Pause',
+	capslock: 'Caps Lock',
+	escape: 'Escape',
+	pageUp: 'Page Up',
+	pageDown: 'Page Down',
+	end: 'End',
+	home: 'Home',
+	leftArrow: 'חץ שמאלה',
+	upArrow: 'חץ למעלה',
+	rightArrow: 'חץ ימינה',
+	downArrow: 'חץ למטה',
+	insert: 'הכנס',
+	'delete': 'מחק',
+	leftWindowKey: 'Left Windows key', // MISSING
+	rightWindowKey: 'Right Windows key', // MISSING
+	selectKey: 'בחר מקש',
+	numpad0: 'Numpad 0', // MISSING
+	numpad1: 'Numpad 1', // MISSING
+	numpad2: 'Numpad 2', // MISSING
+	numpad3: 'Numpad 3', // MISSING
+	numpad4: 'Numpad 4', // MISSING
+	numpad5: 'Numpad 5', // MISSING
+	numpad6: 'Numpad 6', // MISSING
+	numpad7: 'Numpad 7', // MISSING
+	numpad8: 'Numpad 8', // MISSING
+	numpad9: 'Numpad 9', // MISSING
+	multiply: 'Multiply', // MISSING
+	add: 'הוסף',
+	subtract: 'Subtract', // MISSING
+	decimalPoint: 'Decimal Point', // MISSING
+	divide: 'Divide', // MISSING
+	f1: 'F1',
+	f2: 'F2',
+	f3: 'F3',
+	f4: 'F4',
+	f5: 'F5',
+	f6: 'F6',
+	f7: 'F7',
+	f8: 'F8',
+	f9: 'F9',
+	f10: 'F10',
+	f11: 'F11',
+	f12: 'F12',
+	numLock: 'Num Lock',
+	scrollLock: 'Scroll Lock',
+	semiColon: 'Semicolon', // MISSING
+	equalSign: 'Equal Sign', // MISSING
+	comma: 'Comma', // MISSING
+	dash: 'Dash', // MISSING
+	period: 'Period', // MISSING
+	forwardSlash: 'סלאש',
+	graveAccent: 'Grave Accent', // MISSING
+	openBracket: 'Open Bracket', // MISSING
+	backSlash: 'סלאש הפוך',
+	closeBracket: 'Close Bracket', // MISSING
+	singleQuote: 'ציטוט יחיד'
+} );
