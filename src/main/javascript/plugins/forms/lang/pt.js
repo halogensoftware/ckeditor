@@ -1,13 +1,13 @@
 ﻿/*
-Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'forms', 'pt', {
 	button: {
 		title: 'Propriedades do Botão',
 		text: 'Texto (Valor)',
 		type: 'Tipo',
-		typeBtn: 'Button',
+		typeBtn: 'Botão',
 		typeSbm: 'Submit',
 		typeRst: 'Reset'
 	},
@@ -59,10 +59,10 @@ CKEDITOR.plugins.setLang( 'forms', 'pt', {
 		maxChars: 'Nr. Máximo de Caracteres',
 		type: 'Tipo',
 		typeText: 'Texto',
-		typePass: 'Palavra-chave',
-		typeEmail: 'Email', // MISSING
-		typeSearch: 'Search', // MISSING
-		typeTel: 'Telephone Number', // MISSING
+		typePass: 'Senha',
+		typeEmail: 'Email',
+		typeSearch: 'Pesquisar',
+		typeTel: 'Telefone',
 		typeUrl: 'URL'
 	}
-});
+} );

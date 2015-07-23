@@ -1,19 +1,32 @@
 /**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.html or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
+
+/* exported CKBUILDER_CONFIG */
 
 var CKBUILDER_CONFIG = {
 	skin: 'halogen',
 	ignore: [
+		'bender.js',
+		'.bender',
+		'bender-err.log',
+		'bender-out.log',
 		'dev',
-		'samples',
-		'README.md',
+		'.DS_Store',
+		'.editorconfig',
 		'.gitignore',
 		'.gitattributes',
+		'gruntfile.js',
 		'.idea',
+		'.jscsrc',
+		'.jshintignore',
+		'.jshintrc',
 		'.mailmap',
-		'.DS_Store'
+		'node_modules',
+		'package.json',
+		'README.md',
+		'tests'
 	],
 	plugins: {
 		a11yhelp: 1,
@@ -41,7 +54,8 @@ var CKBUILDER_CONFIG = {
 		htmlwriter: 1,
 		iframe: 1,
 		image: 1,
-		indent: 1,
+		indentlist: 1,
+		indentblock: 1,
 		justify: 1,
 		link: 1,
 		list: 1,

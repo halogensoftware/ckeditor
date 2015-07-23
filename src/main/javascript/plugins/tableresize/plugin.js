@@ -1,9 +1,9 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.html or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
-(function() {
+( function() {
 	var pxUnit = CKEDITOR.tools.cssLength,
 		needsIEHacks = CKEDITOR.env.ie && ( CKEDITOR.env.ie7Compat || CKEDITOR.env.quirks );
 
@@ -96,14 +96,15 @@
 
 			// The pillar should reflects exactly the shape of the hovered
 			// column border line.
-			pillars.push({
+			pillars.push( {
 				table: table,
 				index: pillarIndex,
 				x: pillarLeft,
 				y: tbodyPosition.y,
 				width: pillarWidth,
 				height: tbody.$.offsetHeight,
-				rtl: rtl } );
+				rtl: rtl
+			} );
 		}
 
 		return pillars;
@@ -219,8 +220,9 @@
 
 				// Defer the resizing to avoid any interference among cells.
 				CKEDITOR.tools.setTimeout( function( leftCell, leftOldWidth, rightCell, rightOldWidth, tableWidth, sizeShift ) {
-					leftCell && leftCell.setStyle( 'width', pxUnit( Math.max( leftOldWidth + sizeShift, 0 ) ) );
-					rightCell && rightCell.setStyle( 'width', pxUnit( Math.max( rightOldWidth - sizeShift, 0 ) ) );
+					// 1px is the minimum valid width (#11626).
+					leftCell && leftCell.setStyle( 'width', pxUnit( Math.max( leftOldWidth + sizeShift, 1 ) ) );
+					rightCell && rightCell.setStyle( 'width', pxUnit( Math.max( rightOldWidth - sizeShift, 1 ) ) );
 
 					// If we're in the last cell, we need to resize the table as well
 					if ( tableWidth )
@@ -229,7 +231,8 @@
 					leftCell, leftCell && getWidth( leftCell ),
 					rightCell, rightCell && getWidth( rightCell ),
 					( !leftCell || !rightCell ) && ( getWidth( table ) + getBorderWidth( table, 'left' ) + getBorderWidth( table, 'right' ) ),
-					currentShift ] );
+					currentShift
+				] );
 			}
 		}
 
@@ -257,6 +260,11 @@
 			'style="position:absolute;cursor:col-resize;filter:alpha(opacity=0);opacity:0;' +
 				'padding:0;background-color:#004;background-image:none;border:0px none;z-index:10"></div>', document );
 
+		// Clean DOM when editor is destroyed.
+		editor.on( 'destroy', function() {
+			resizer.remove();
+		} );
+
 		// Except on IE6/7 (#5890), place the resizer after body to prevent it
 		// from being editable.
 		if ( !needsIEHacks )
@@ -275,12 +283,12 @@
 
 			pillar = targetPillar;
 
-			resizer.setStyles({
+			resizer.setStyles( {
 				width: pxUnit( targetPillar.width ),
 				height: pxUnit( targetPillar.height ),
 				left: pxUnit( targetPillar.x ),
 				top: pxUnit( targetPillar.y )
-			});
+			} );
 
 			// In IE6/7, it's not possible to have custom cursors for floating
 			// elements in an editable document. Show the resizer in that case,
@@ -347,10 +355,20 @@
 
 		init: function( editor ) {
 			editor.on( 'contentDom', function() {
-				var resizer;
+				var resizer,
+					editable = editor.editable();
 
-				editor.document.getBody().on( 'mousemove', function( evt ) {
+				// In Classic editor it is better to use document
+				// instead of editable so event will work below body.
+				editable.attachListener( editable.isInline() ? editable : editor.document, 'mousemove', function( evt ) {
 					evt = evt.data;
+
+					var target = evt.getTarget();
+
+					// FF may return document and IE8 some UFO (object with no nodeType property...)
+					// instead of an element (#11823).
+					if ( target.type != CKEDITOR.NODE_ELEMENT )
+						return;
 
 					var pageX = evt.getPageOffset().x;
 
@@ -362,13 +380,18 @@
 					}
 
 					// Considering table, tr, td, tbody but nothing else.
-					var target = evt.getTarget(),
-						table, pillars;
+					var table, pillars;
 
 					if ( !target.is( 'table' ) && !target.getAscendant( 'tbody', 1 ) )
 						return;
 
 					table = target.getAscendant( 'table', 1 );
+
+					// Make sure the table we found is inside the container
+					// (eg. we should not use tables the editor is embedded within)
+					if ( !editor.editable().contains( table ) ) {
+						return;
+					}
 
 					if ( !( pillars = table.getCustomData( '_cke_table_pillars' ) ) ) {
 						// Cache table pillars calculation result.
@@ -382,9 +405,9 @@
 						!resizer && ( resizer = new columnResizer( editor ) );
 						resizer.attachTo( pillar );
 					}
-				});
-			});
+				} );
+			} );
 		}
-	});
+	} );
 
-})();
+} )();

@@ -1,11 +1,11 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.html or http://ckeditor.com/license
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
 /**
-* @fileOverview 
-*/
+ * @fileOverview
+ */
 
 /**#@+
    @type String
@@ -17,16 +17,9 @@
  * @namespace
  */
 CKEDITOR.lang[ 'ku' ] = {
-	/**
-	 * The language reading direction. Possible values are "rtl" for
-	 * Right-To-Left languages (like Arabic) and "ltr" for Left-To-Right
-	 * languages (like English).
-	 * @default 'ltr'
-	 */
-	dir: 'rtl',
-
 	// ARIA description.
-	editor: 'سەرنووسەی دەقی بە پیت',
+	editor: 'سەرنووسەی دەقی تەواو',
+	editorPanel: 'بڕگەی سەرنووسەی دەقی تەواو',
 
 	// Common messages and labels.
 	common: {
@@ -62,7 +55,7 @@ CKEDITOR.lang[ 'ku' ] = {
 		advisoryTitle: 'ڕاوێژکاری سەردێڕ',
 		cssStyle: 'شێواز',
 		ok: 'باشە',
-		cancel: 'هەڵوەشاندن',
+		cancel: 'پاشگەزبوونەوە',
 		close: 'داخستن',
 		preview: 'پێشبینین',
 		resize: 'گۆڕینی ئەندازە',
@@ -87,9 +80,11 @@ CKEDITOR.lang[ 'ku' ] = {
 		alignLeft: 'چەپ',
 		alignRight: 'ڕاست',
 		alignCenter: 'ناوەڕاست',
+		alignJustify: 'هاوستوونی',
 		alignTop: 'سەرەوە',
 		alignMiddle: 'ناوەند',
 		alignBottom: 'ژێرەوە',
+		alignNone: 'هیچ',
 		invalidValue	: 'نرخێکی نادرووست.',
 		invalidHeight: 'درێژی دەبێت ژمارە بێت.',
 		invalidWidth: 'پانی دەبێت ژمارە بێت.',
