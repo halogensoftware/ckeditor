@@ -4,7 +4,7 @@
   	<groupId>com.ckeditor.javascript</groupId>
   	<artifactId>ckeditor</artifactId>
   	<packaging>pom</packaging>
-  	<version>4.5.3.hal-SNAPSHOT</version>
+  	<version>4.4.8.hal-SNAPSHOT</version>
 
   	<name>CKEditor Maven Assembly</name>
   	<description>http://build.pdt/hg/thirdparty/ckeditor/raw-file/tip/README</description>
