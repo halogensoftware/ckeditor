@@ -7,6 +7,6 @@ CKEDITOR.plugins.setLang( 'devtools', 'de', {
 	title: 'Elementinformation',
 	dialogName: 'Dialogfenstername',
 	tabName: 'Reitername',
-	elementId: 'Elementkennung',
+	elementId: 'Element ID',
 	elementType: 'Elementtyp'
 } );

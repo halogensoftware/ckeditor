@@ -4,10 +4,10 @@
  */
 
 CKEDITOR.plugins.setLang( 'codesnippet', 'bg', {
-	button: 'Въвеждане на блок с код',
-	codeContents: 'Съдържание на кода',
-	emptySnippetError: 'Блока с код не може да бъде празен.',
-	language: 'Език',
-	title: 'Блок с код',
-	pathName: 'блок с код'
+	button: 'Въведете кода',
+	codeContents: 'Code content', // MISSING
+	emptySnippetError: 'A code snippet cannot be empty.', // MISSING
+	language: 'Language', // MISSING
+	title: 'Code snippet', // MISSING
+	pathName: 'code snippet' // MISSING
 } );

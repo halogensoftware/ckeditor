@@ -29,9 +29,9 @@ CKEDITOR.plugins.setLang( 'docprops', 'tt', {
 	marginLeft: 'Сул',
 	marginRight: 'Уң як',
 	marginTop: 'Өскә',
-	meta: 'Метатег',
+	meta: 'Meta Tags', // MISSING
 	metaAuthor: 'Автор',
-	metaCopyright: 'Хокук иясе',
+	metaCopyright: 'Copyright', // MISSING
 	metaDescription: 'Документ тасвирламасы',
 	metaKeywords: 'Document Indexing Keywords (comma separated)', // MISSING
 	other: 'Башка...',
