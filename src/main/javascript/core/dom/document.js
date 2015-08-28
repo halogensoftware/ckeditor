@@ -43,9 +43,12 @@ CKEDITOR.tools.extend( CKEDITOR.dom.document.prototype, {
 	 * @param {String} cssFileUrl The CSS file URL.
 	 */
 	appendStyleSheet: function( cssFileUrl ) {
-		if ( this.$.createStyleSheet )
-			this.$.createStyleSheet( cssFileUrl );
-		else {
+		if ( this.$.createStyleSheet ) {
+			var styleSheet = document.createElement('style');
+			styleSheet.href = cssFileUrl;
+			styleSheet.type = 'text/css';
+			document.getElementsByTagName("head")[0].appendChild(styleSheet);
+		} else {
 			var link = new CKEDITOR.dom.element( 'link' );
 			link.setAttributes( {
 				rel: 'stylesheet',
