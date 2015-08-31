@@ -43,21 +43,14 @@ CKEDITOR.tools.extend( CKEDITOR.dom.document.prototype, {
 	 * @param {String} cssFileUrl The CSS file URL.
 	 */
 	appendStyleSheet: function( cssFileUrl ) {
-		if ( this.$.createStyleSheet ) {
-			var styleSheet = document.createElement('style');
-			styleSheet.href = cssFileUrl;
-			styleSheet.type = 'text/css';
-			document.getElementsByTagName("head")[0].appendChild(styleSheet);
-		} else {
-			var link = new CKEDITOR.dom.element( 'link' );
-			link.setAttributes( {
-				rel: 'stylesheet',
-				type: 'text/css',
-				href: cssFileUrl
-			} );
+		var link = new CKEDITOR.dom.element( 'link' );
+		link.setAttributes( {
+			rel: 'stylesheet',
+			type: 'text/css',
+			href: cssFileUrl
+		} );
 
-			this.getHead().append( link );
-		}
+		this.getHead().append( link );
 	},
 
 	/**
@@ -68,15 +61,17 @@ CKEDITOR.tools.extend( CKEDITOR.dom.document.prototype, {
 	 */
 	appendStyleText: function( cssStyleText ) {
 		if ( this.$.createStyleSheet ) {
-			var styleSheet = this.$.createStyleSheet( '' );
-			styleSheet.cssText = cssStyleText;
+			var style = document.createElement('STYLE');
+			style.setAttribute("type", "text/css");
+			style.styleSheet.cssText = cssStyleText;
+			this.getHead().append( style );
 		} else {
 			var style = new CKEDITOR.dom.element( 'style', this );
 			style.append( new CKEDITOR.dom.text( cssStyleText, this ) );
 			this.getHead().append( style );
 		}
 
-		return styleSheet || style.$.sheet;
+		return style.styleSheet || style.$.sheet;
 	},
 
 	/**
