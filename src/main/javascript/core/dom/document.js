@@ -61,17 +61,15 @@ CKEDITOR.tools.extend( CKEDITOR.dom.document.prototype, {
 	 */
 	appendStyleText: function( cssStyleText ) {
 		if ( this.$.createStyleSheet ) {
-			var style = document.createElement('STYLE');
-			style.setAttribute("type", "text/css");
-			style.styleSheet.cssText = cssStyleText;
-			this.getHead().append( style );
+			var styleSheet = this.$.createStyleSheet( '' );
+			styleSheet.cssText = cssStyleText;
 		} else {
 			var style = new CKEDITOR.dom.element( 'style', this );
 			style.append( new CKEDITOR.dom.text( cssStyleText, this ) );
 			this.getHead().append( style );
 		}
 
-		return style.styleSheet || style.$.sheet;
+		return styleSheet || style.$.sheet;
 	},
 
 	/**
