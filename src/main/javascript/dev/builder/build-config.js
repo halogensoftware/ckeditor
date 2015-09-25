@@ -6,7 +6,10 @@
 /* exported CKBUILDER_CONFIG */
 
 var CKBUILDER_CONFIG = {
-	skin: 'halogen',
+	skins : 
+	{
+		halogen : 1
+	},
 	ignore: [
 		'bender.js',
 		'.bender',

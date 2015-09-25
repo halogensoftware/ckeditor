@@ -64,7 +64,7 @@
 						</goals>
 						<configuration>
 							<executable>java</executable>
-							<commandlineArgs>-jar src/main/javascript/dev/builder/ckbuilder/2.0.1/ckbuilder.jar --build src/main/javascript/ target --version=${project.version} --revision=${hg.changeset} --build-config src/main/javascript/dev/builder/build-config.js --no-tar --overwrite "$@"</commandlineArgs>
+							<commandlineArgs>-jar src/main/javascript/dev/builder/ckbuilder/2.3.0/ckbuilder.jar --build src/main/javascript/ target --version=${project.version} --build-config src/main/javascript/dev/builder/build-config.js --no-tar --overwrite "$@"</commandlineArgs>
 						</configuration>
 					</execution> 
 				</executions>
