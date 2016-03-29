@@ -1798,7 +1798,12 @@ CKEDITOR.STYLE_OBJECT = 3;
 		if ( typeof source == 'string' )
 			source = CKEDITOR.tools.parseCssText( source );
 		if ( typeof target == 'string' )
-			target = CKEDITOR.tools.parseCssText( target, true );
+			if ( CKEDITOR.env.ie ) {
+				target = CKEDITOR.tools.parseCssText(target, true, true);
+			} else {
+				target = CKEDITOR.tools.parseCssText(target, true);
+			}
+
 
 		for ( var name in source ) {
 			if ( !( name in target && ( target[ name ] == source[ name ] || source[ name ] == 'inherit' || target[ name ] == 'inherit' ) ) )
