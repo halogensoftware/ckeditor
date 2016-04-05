@@ -568,13 +568,25 @@ CKEDITOR.dom.element.clearMarkers = function( database, element, removeFromDatab
 		 * @returns {String} The property value.
 		 */
 		getComputedStyle: CKEDITOR.env.ie ?
-			function( propertyName ) {
-				return this.$.currentStyle[ CKEDITOR.tools.cssStyleToDomStyle( propertyName ) ];
-			} : function( propertyName ) {
-				var style = this.getWindow().$.getComputedStyle( this.$, null );
-				// Firefox may return null if we call the above on a hidden iframe. (#9117)
-				return style ? style.getPropertyValue( propertyName ) : '';
-			},
+			function (propertyName) {
+				return this.$.currentStyle[CKEDITOR.tools.cssStyleToDomStyle(propertyName)];
+			} : function (propertyName) {
+			var style = this.getWindow().$.getComputedStyle(this.$, null);
+			// Firefox may return null if we call the above on a hidden iframe. (#9117)
+
+			if (style) {
+				try {
+					return style.getPropertyValue(propertyName);
+				}
+				catch (e) {
+					if (e.name == 'NS_ERROR_NOT_AVAILABLE') {
+						return '';
+					}
+					throw (e)
+				}
+			}
+			return '';
+		},
 
 		/**
 		 * Gets the DTD entries for this element.
