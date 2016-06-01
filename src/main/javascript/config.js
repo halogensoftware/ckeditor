@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For the complete reference:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-	
+
 	config.removePlugins = 'resize,elementspath';
 	config.extraPlugins = 'wsc,halogenemailtemplatemergefields,halogencheckspelling';
 	config.font_defaultLabel = 'Arial';
@@ -16,12 +16,12 @@ CKEDITOR.editorConfig = function( config ) {
     config.pasteFromWordRemoveStyles = false;
 	config.skin='halogen';
 	config.toolbarCanCollapse = true;
-	
+
 	config.toolbar_HalogenGeneral =
 		[
 		    ['Bold','Italic','Underline'],['BulletedList','NumberedList'],['Link'],['halogencheckspellingcmd']
 		];
-	
+
 	config.toolbar_HalogenJobReq =
 		[
 		    ['Bold','Italic','Underline'],['BulletedList','NumberedList'],['Link'],['halogencheckspellingcmd'],
@@ -50,18 +50,18 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
     config.toolbar_HalogenEmailTags = config.toolbar_HalogenEmail.concat(emailtemplateExtraTools);
-    
+
 	//CW admin side CKEditor toolbar
 	config.toolbar_CWAdmin =
 	[
-		['Source','-','Preview','Maximize','-','Bold','Italic','Underline','Subscript','Superscript'], 
+		['Source','-','Preview','Maximize','-','Bold','Italic','Underline','Subscript','Superscript'],
 		['TextColor','BGColor'],['NumberedList','BulletedList','Outdent','Indent'],
-		['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','HorizontalRule'], 
-		['SpellChecker'],['Wsc'],['Link','Unlink'], ['Image','SpecialChar'], 
+		['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','HorizontalRule'],
+		['Link','Unlink'], ['Image','SpecialChar'],
 		'/',
 		['Font','FontSize']
 	];
-  
+
 	// Make dialogs simpler.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 };
