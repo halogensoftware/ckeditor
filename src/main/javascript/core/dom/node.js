@@ -783,7 +783,7 @@ CKEDITOR.tools.extend( CKEDITOR.dom.node.prototype, {
 		if ( this.type != CKEDITOR.NODE_ELEMENT )
 			element = this.getParent();
 
-		if ( element && typeof element.$.isContentEditable != 'undefined' )
+		if ( element !== null && typeof element.$.isContentEditable != 'undefined' )
 			return !( element.$.isContentEditable || element.data( 'cke-editable' ) );
 		else {
 			// Degrade for old browsers which don't support "isContentEditable", e.g. FF3

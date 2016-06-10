@@ -513,13 +513,15 @@
 					evt.removeListener();
 
 					if ( restoreSel !== 0 ) {
-						var nativ = editor.getSelection().getNative();
-						// Do it only if the native selection is at an unwanted
-						// place (at the very start of the editable). #10119
-						if ( nativ && nativ.isCollapsed && nativ.anchorNode == editable.$ ) {
-							var rng = editor.createRange();
-							rng.moveToElementEditStart( editable );
-							rng.select();
+						if(editor.getSelection() !== null){
+							var nativ = editor.getSelection().getNative();
+							// Do it only if the native selection is at an unwanted
+							// place (at the very start of the editable). #10119
+							if ( nativ && nativ.isCollapsed && nativ.anchorNode == editable.$ ) {
+								var rng = editor.createRange();
+								rng.moveToElementEditStart( editable );
+								rng.select();
+							}
 						}
 					}
 				}, null, null, -2 );
