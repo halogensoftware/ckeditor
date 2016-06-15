@@ -513,7 +513,7 @@
 					evt.removeListener();
 
 					if ( restoreSel !== 0 ) {
-						if(editor.getSelection() !== null){
+						if(editor.getSelection() !== null && editor.getSelection() !== undefined){
 							var nativ = editor.getSelection().getNative();
 							// Do it only if the native selection is at an unwanted
 							// place (at the very start of the editable). #10119
