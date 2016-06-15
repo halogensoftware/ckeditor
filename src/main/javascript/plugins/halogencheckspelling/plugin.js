@@ -53,11 +53,9 @@ CKEDITOR.plugins.add('halogencheckspelling', {
 					 alert('SpellChecker: Unsupported language!');
 					 return;
 				 }
-				 var url = CKEDITOR.basePath.replace("/common/ckeditor/", "");
 	           	var launch = function () {
 		            		if(loaded) { 
 		            			var config=getSpellCheckerConfig();
-		    					config.url=url;
 		    					config.language=language;
     							config.elements=[editor.name];
     							var spellChecker=new HalogenSpellChecker(config);
